@@ -27,13 +27,14 @@ public class DeptController_Consumer
 	@RequestMapping(value = "/consumer/dept/add")
 	public boolean add(Dept dept)
 	{
-		System.err.println("111");
+		System.err.println("新增："+dept.toString());
 		return restTemplate.postForObject(REST_URL_PREFIX + "/dept/add", dept, Boolean.class);
 	}
 
 	@RequestMapping(value = "/consumer/dept/get/{id}")
 	public Dept get(@PathVariable("id") Long id)
 	{
+		System.err.println("查询单个："+id);
 		return restTemplate.getForObject(REST_URL_PREFIX + "/dept/get/" + id, Dept.class);
 	}
 
@@ -41,6 +42,7 @@ public class DeptController_Consumer
 	@RequestMapping(value = "/consumer/dept/list")
 	public List<Dept> list()
 	{
+		System.err.println("查询list：");
 		return restTemplate.getForObject(REST_URL_PREFIX + "/dept/list", List.class);
 	}
 
